@@ -52,6 +52,39 @@ public class KomoranResult {
         return this.getMorphesByTags(Arrays.asList(SYMBOL.NNG, SYMBOL.NNP));
     }
 
+
+    /**
+     * 분석 결과 중 용언류(VV, VA, VX, VCP, VCN)만 반환합니다.
+     * @return VV, VA, VX, VCP, VCN에 해당하는 형태소가 포함된 List
+     */
+    public List<String> getVerbs() {
+        return this.getMorphesByTags(Arrays.asList(SYMBOL.VV, SYMBOL.VA, SYMBOL.VX, SYMBOL.VCP, SYMBOL.VCN));
+    }
+
+    /**
+     * 분석 결과 중 관계언류(JKS, JKC, JKG, JKO, JKB, JKV)만 반환합니다.
+     * @return JKS, JKC, JKG, JKO, JKB, JKV에 해당하는 형태소가 포함된 List
+     */
+    public List<String> getRelatives() {
+        return this.getMorphesByTags(Arrays.asList(SYMBOL.JKS, SYMBOL.JKC, SYMBOL.JKG, SYMBOL.JKO, SYMBOL.JKB, SYMBOL.JKV));
+    }
+
+    /**
+     * 분석 결과 중 의존형태류(EF, EC, ETN, ETM)만 반환합니다.
+     * @return EF, EC, ETN, ETM에 해당하는 형태소가 포함된 List
+     */
+    public List<String> getDependences() {
+        return this.getMorphesByTags(Arrays.asList(SYMBOL.EF, SYMBOL.EC, SYMBOL.ETN, SYMBOL.ETM));
+    }
+
+    /**
+     * 분석 결과 중 기호류(SF, SW, SS, NA)만 반환합니다.
+     * @return SF, SW, SS, NA에 해당하는 형태소가 포함된 List
+     */
+    public List<String> getSigns() {
+        return this.getMorphesByTags(Arrays.asList(SYMBOL.SF, SYMBOL.SW, SYMBOL.SS, SYMBOL.NA));
+    }
+
     /**
      * 분석 결과 중 원하는 품사에 해당하는 형태소만 추출하여 반환합니다.
      * @param str 추출 대상 품사
@@ -66,6 +99,7 @@ public class KomoranResult {
      * @param targetPosCollection 추출 대상 품사가 담긴 List
      * @return 품사에 해당하는 형태소만 추출된 List
      */
+
     public List<String> getMorphesByTags(Collection<String> targetPosCollection) {
 
         Set<String> targetPosSet = new HashSet<>(targetPosCollection);
