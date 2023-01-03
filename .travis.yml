@@ -1,0 +1,14 @@
+#add build ci
+
+language: java
+
+sudo: required
+
+jdk:
+- openjdk8
+
+script:
+- pwd
+
+after_success:
+- ./gradlew cobertura coveralls
